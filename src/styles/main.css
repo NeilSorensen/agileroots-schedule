@@ -39,3 +39,109 @@ html, body {
 .fade-leave.fade-leave-active {
   opacity: 0.01;
 }
+
+.schedule{
+  background: #fff;
+  display:block;
+  width:625px;
+}
+
+.row{
+  vertical-align: top;
+}
+
+.event-block{
+  width:580px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+h5{
+  margin-top:2px;
+  margin-bottom:1px;
+}
+
+h1 {
+  text-align:center
+}
+
+p.byline{
+  margin-top:1px;
+}
+
+.room-event{
+  width: 16%;
+  display: inline-block;
+  vertical-align:top;
+}
+
+.room-event.title{
+  vertical-align: text-top;
+}
+
+.schedule .timeline-block {
+  background:#f1f1f1;
+  width:40px;
+  display:inline-block;
+  vertical-align:top;
+}
+
+.event{
+  border-width:2px;
+  border-color:#fff;
+  border-style:solid;
+  vertical-align:middle;
+}
+
+.plenary-event{
+  text-align: center;
+}
+
+.keynote{
+  background:#a7cf66;
+}
+
+.talk{
+  background:#D6D4C1;
+}
+
+.xr{
+  background:yellow;
+}
+
+.workshop{
+  background:purple;
+}
+
+.plenary-event.break{
+  background:#f1f1f1;
+}
+
+.timeline-corner{
+  width:40px;
+  display:inline-block;
+}
+
+.time-10 {
+  height: 1em;
+}
+
+.time-20 {
+  height: 2em;
+}
+
+.time-30 {
+  height: 3em;
+}
+
+.time-40 {
+  height: 4em;
+}
+
+.time-90 {
+  height: 9em;
+}
+
+.wait-10{
+  margin-bottom: 1em;
+}
