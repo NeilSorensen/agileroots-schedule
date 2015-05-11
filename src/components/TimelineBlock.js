@@ -15,4 +15,6 @@ var timelineBlock = React.createClass({
 		
 		return React.createElement('div', {class: 'timeline-block'}, timeBlocks);
 	}
-})
+});
+
+module.exports = timelineBlock;
