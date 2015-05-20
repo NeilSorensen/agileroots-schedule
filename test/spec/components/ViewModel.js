@@ -106,6 +106,23 @@ describe('ViewModel', function() {
 	});
 	
 	describe('when creating a break event block', function() {
-		
+		describe('when filling a short break', function(){
+			var breakBlock = viewModel.buildBreak(1434642000, 1434642000 + 30*60);
+			it('should be a half hour', function(){
+				expect(breakBlock.halfHours).toBe(1);
+			});
+			it('should be a break block', function(){
+				expect(breakBlock.blockType).toBe('break');
+			});
+		});
+		describe('when filling a long break', function(){
+			var breakBlock = viewModel.buildBreak(1434642000, 1434642000 + 30*60*3);
+			it('should be an hour and a half', function() {
+				expect(breakBlock.halfHours).toBe(3);
+			});
+			it('should be a lunch break', function(){
+				expect(breakBlock.blockType).toBe('lunch');
+			});
+		})
 	});
 });

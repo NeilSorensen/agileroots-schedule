@@ -35,4 +35,12 @@ module.exports = {
 		}
 		return blocks;
 	},
+	buildBreak: function(breakStart, breakEnd){
+		var halfHours = blockLengthInHalfHours(breakStart, breakEnd);
+		return {
+			blockType: halfHours > 1 ? 'lunch' : 'break',
+			startTime: breakStart,
+			halfHours: halfHours
+		};
+	}
 };
