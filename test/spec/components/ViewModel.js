@@ -99,8 +99,14 @@ describe('ViewModel', function() {
 		
 		describe('when building all events for the day', function(){
 			var allBlocks = viewModel.buildEventsForDay(sampleData.sessions);
-			it('should have the right number of events', function(){
-				expect(allBlocks.length).toBe(7);
+			it('should have the right number of event blocks', function(){
+				expect(allBlocks.length).toBe(10);
+			});
+			it('should include lunch', function(){
+				expect(allBlocks.filter(function(b){return b.blockType == 'lunch';}).length).toBe(1);
+			});
+			it('should include breaks', function(){
+				expect(allBlocks.filter(function(b){return b.blockType == 'break';}).length).toBe(2);
 			});
 		});
 	});

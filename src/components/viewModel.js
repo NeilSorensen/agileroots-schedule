@@ -22,12 +22,16 @@ module.exports = {
 			halfHours: blockLengthInHalfHours(startTime,  endTime)
 		};	
 	},
+	
 	buildEventsForDay: function(sessions){
 		var nextBlockStarts = Math.min.apply(null, sessions.map(function(s){ return s.start_time_epoch;}));
 		var dayEnd = Math.max.apply(null, sessions.map(function(s){ return s.end_time_epoch;}));
-		var lastBlockEnds = 0;
+		var lastBlockEnds = nextBlockStarts;
 		var blocks = [];
 		while(lastBlockEnds < dayEnd){
+			if(nextBlockStarts > lastBlockEnds){
+				blocks.push(this.buildBreak(lastBlockEnds, nextBlockStarts));
+			}
 			var nextBlock = this.buildBlockStartingAt(sessions, nextBlockStarts);
 			blocks.push(nextBlock);
 			lastBlockEnds = nextBlockStarts + 60*30*nextBlock.halfHours;
@@ -35,6 +39,7 @@ module.exports = {
 		}
 		return blocks;
 	},
+	
 	buildBreak: function(breakStart, breakEnd){
 		var halfHours = blockLengthInHalfHours(breakStart, breakEnd);
 		return {
